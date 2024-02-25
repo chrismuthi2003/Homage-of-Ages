@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b85uefxov8qn1"]
+[gd_scene load_steps=4 format=3 uid="uid://b85uefxov8qn1"]
 
 [ext_resource type="Shape2D" uid="uid://dnavfki54sv1r" path="res://new_rectangle_shape_2d.tres" id="1_feuly"]
 [ext_resource type="Texture2D" uid="uid://cbyg7udsotwku" path="res://Images/caveman_enemy.png" id="1_v82hl"]
+[ext_resource type="Script" path="res://caveman_enemy.gd" id="1_w055k"]
 
 [node name="Caveman Enemy" type="Node2D"]
+script = ExtResource("1_w055k")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -14,3 +16,8 @@ shape = ExtResource("1_feuly")
 position = Vector2(-7.7486e-07, 2.38419e-07)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_v82hl")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
